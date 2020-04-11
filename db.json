@@ -1,0 +1,37 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Which of the following is a Nintendo franchise?",
+      "choices": [
+        "(Super) Mario",
+        "The Legend of Zelda",
+        "Animal Crossing",
+        "All of the Above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 2,
+      "text": "Which of the following is a Capcom franchise?",
+      "choices": [
+        "Resident Evil",
+        "Final Fantasy",
+        "The Elder Scrolls",
+        "None of the Above"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 3,
+      "text": "Which of the following is a Bethesda franchise?",
+      "choices": [
+        "Atelier",
+        "Doom",
+        "Tales of",
+        "The Legend of Heroes"
+      ],
+      "answerIndex": 1
+    }
+  ]
+}
