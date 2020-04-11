@@ -4,13 +4,25 @@
 
 .App-header {
   background-color: #E91E63;
-  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+footer {
+  background-color: #E91E63;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
 
 main {
@@ -30,4 +42,30 @@ main {
 	100% {
 		opacity: 1;
 	}
+}
+
+input {
+  font-size: calc(10px + 2vmin);
+  /* margin: calc(10px + 2vmin); */
+}
+
+.choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+}
+
+.choice:hover {
+  background-color: #E91E63;
+  color: white;
+}
+
+input[type=submit] {
+  color: white;
+  background-color: #E91E63;
+  border-style: none;
+  padding-left: calc(2px + 2vmin);
+  padding-right: calc(2px + 2vmin);
+  margin: calc(2px + 2vmin);
 }

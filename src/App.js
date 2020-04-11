@@ -13,7 +13,6 @@ function App() {
     // fetch and set questions
     axios.get("http://localhost:3000/questions")
     .then(res => {
-      console.log(res);
       setQuestionsArray(res.data);
       setLoaded(true);
     })
@@ -27,9 +26,11 @@ function App() {
       </header>
       <main>
         {
-          loaded && <QuestionContainer question={questionsArray[0]}/>
+          loaded &&
+          <QuestionContainer question={questionsArray[0]}/>
         }
       </main>
+      <footer>© 2020 Quizl</footer>
     </div>
   );
 }
