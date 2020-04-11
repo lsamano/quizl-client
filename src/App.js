@@ -22,7 +22,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>QUIZL</h1>
-        <span>Challenge Yourself.</span>
       </header>
       <main>
         {

@@ -3,7 +3,8 @@
 }
 
 .App-header {
-  background-color: #E91E63;
+  /* background-color: #E91E63; */
+  background-color: #252525;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +14,8 @@
 }
 
 footer {
-  background-color: #E91E63;
+  /* background-color: #E91E63; */
+  background-color: #252525;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,13 +59,15 @@ input {
 }
 
 .choice:hover {
-  background-color: #E91E63;
+  /* background-color: #E91E63; */
+  background-color: #252525;
   color: white;
 }
 
 input[type=submit] {
-  color: white;
-  background-color: #E91E63;
+  color: #171717;
+  /* background-color: #E91E63; */
+  background-color: #e87b9f;
   border-style: none;
   padding-left: calc(2px + 2vmin);
   padding-right: calc(2px + 2vmin);
