@@ -11,7 +11,7 @@ const QuestionContainer = ({ question }) => {
       <h2>{question.text}</h2>
       <form>
         { formattedChoices }
-        <input type='submit' />
+        <input type='submit' value="Next Question" />
       </form>
     </div>
   )
