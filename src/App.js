@@ -26,7 +26,10 @@ function App() {
       <main>
         {
           loaded &&
-          <QuestionContainer question={questionsArray[currentIndex]}/>
+          <QuestionContainer
+            question={questionsArray[currentIndex]}
+            questionNumber={currentIndex + 1}
+            />
         }
       </main>
       <footer>© 2020 Quizl</footer>
