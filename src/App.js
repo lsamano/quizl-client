@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import QuestionContainer from './QuestionContainer';
+import Question from './Question';
 
 function App() {
   const [loaded, setLoaded] = useState(false)
@@ -39,7 +39,7 @@ function App() {
       <main>
         {
           loaded &&
-          <QuestionContainer
+          <Question
             key={currentIndex}
             question={questionsArray[currentIndex]}
             questionNumber={currentIndex + 1}
