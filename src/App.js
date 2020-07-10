@@ -8,6 +8,7 @@ function App() {
   const [loaded, setLoaded] = useState(false)
   const [ questionsArray, setQuestionsArray ] = useState([])
   const [ currentIndex, setCurrentIndex ] = useState(-1)
+  const [ timer, setTimer ] = useState(-1)
 
   useEffect(() => {
     // fetch and set questions
@@ -22,13 +23,15 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault();
     // record answer
-    if (currentIndex + 1 === questionsArray.length) {
-      // finish the quiz
-      alert("Quiz is done!")
-    } else {
-      // go to next question
-      setCurrentIndex(currentIndex + 1)
-    }
+    setTimer(setTimeout(() => {
+      if (currentIndex + 1 === questionsArray.length) {
+        // finish the quiz
+        alert("Quiz is done!")
+      } else {
+        // go to next question
+        setCurrentIndex(currentIndex + 1)
+      }
+    }, 200))
   }
 
   return (
@@ -45,6 +48,7 @@ function App() {
             questionNumber={currentIndex + 1}
             amountOfQuestions={questionsArray.length}
             handleSubmit={handleSubmit}
+            timer={timer}
             />
         }
       </main>

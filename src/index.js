@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const theme = createMuiTheme({
   palette: {
@@ -11,6 +12,7 @@ const theme = createMuiTheme({
   }
 })
 
+// <CssBaseline />
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
