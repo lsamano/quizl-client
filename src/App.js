@@ -11,7 +11,7 @@ function App() {
   const [ myTimer, setMyTimer ] = useState(-1)
   const [ viewResults, setViewResults ] = useState(false)
   const [ score, setScore ] = useState(0)
-  const [ incorrectQuestions, setIncorrectQuestions ] = useState([]);
+  const [ gradedArray, setGradedArray ] = useState([]);
 
   useEffect(() => {
     // fetch and set questions
@@ -25,21 +25,18 @@ function App() {
 
   const nextQuestion = answerGiven => {
     // record answer
-    console.log(answerGiven);
     const currentQuestion = questionsArray[currentIndex]
     const answerIndex = currentQuestion["answerIndex"]
     const answerIsCorrect = answerGiven === currentQuestion["choices"][answerIndex]
+    setGradedArray([...gradedArray, answerIsCorrect]);
+    // add score if correct
     if (answerIsCorrect) {
       setScore(score + 1)
-      console.log("correct");
-    } else {
-      // setIncorrectQuestions(incorrectQuestions.push(currentIndex));
-      console.log("incorrect");
     }
+    // timer for better user experience
     setMyTimer(setTimeout(() => {
       if (currentIndex + 1 === questionsArray.length) {
         // finish the quiz
-        // alert("Quiz is done!")
         setViewResults(true);
       } else {
         // go to next question
@@ -50,7 +47,12 @@ function App() {
 
   const renderQuestion = () => {
     if (viewResults) {
-      return <Results score={score} />
+      return (
+        <Results
+          score={score}
+          numberOfQuestions={questionsArray.length}
+          gradedArray={gradedArray} />
+      )
     }
     else if (loaded) {
       return (

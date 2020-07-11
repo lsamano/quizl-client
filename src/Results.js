@@ -1,10 +1,19 @@
 import React from 'react';
 
-const Results = ({ score }) => {
+const Results = ({ score, numberOfQuestions, gradedArray }) => {
+  const showAnswers = () => {
+    return gradedArray.map((answer, index) => <li key={index}>{ answer ? "CORRECT" : "X" }</li>)
+  }
+
   return (
     <>
       Results Screen
-      Score: { score }
+      Score: { score } / { numberOfQuestions }
+      <br />
+      {score/numberOfQuestions * 100}%
+      <ol>
+      { showAnswers() }
+      </ol>
     </>
   )
 };
