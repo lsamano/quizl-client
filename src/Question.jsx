@@ -5,11 +5,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 
-function Question({ question, questionNumber, amountOfQuestions, handleSubmit, myTimer }) {
+function Question({ question, questionNumber, amountOfQuestions, nextQuestion, myTimer }) {
   const [ value, setValue ] = React.useState('')
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(event.target.value);
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    return nextQuestion(value);
   }
 
   const formatChoices = () => {
