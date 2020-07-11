@@ -3,6 +3,11 @@ Quizl is a streamlined quiz app that allows user to answer a series of questions
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Features
+- React.js with Hooks
+- Material-UI
+- axios
+
 ## Development Setup
 In the project directory,
 1. run `yarn` to install necessary dependencies
