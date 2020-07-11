@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import Question from './Question';
 
 function App() {
-  const [loaded, setLoaded] = useState(false)
+  const [ loaded, setLoaded ] = useState(false)
   const [ questionsArray, setQuestionsArray ] = useState([])
   const [ currentIndex, setCurrentIndex ] = useState(-1)
-  const [ timer, setTimer ] = useState(-1)
+  const [ myTimer, setMyTimer ] = useState(-1)
 
   useEffect(() => {
     // fetch and set questions
@@ -23,7 +22,7 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault();
     // record answer
-    setTimer(setTimeout(() => {
+    setMyTimer(setTimeout(() => {
       if (currentIndex + 1 === questionsArray.length) {
         // finish the quiz
         alert("Quiz is done!")
@@ -34,6 +33,23 @@ function App() {
     }, 200))
   }
 
+  const renderQuestion = () => {
+    if (loaded) {
+      return (
+        <Question
+          key={currentIndex}
+          question={questionsArray[currentIndex]}
+          questionNumber={currentIndex + 1}
+          amountOfQuestions={questionsArray.length}
+          handleSubmit={handleSubmit}
+          myTimer={myTimer}
+          />
+      )
+    } else {
+      return null
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -41,15 +57,7 @@ function App() {
       </header>
       <main>
         {
-          loaded &&
-          <Question
-            key={currentIndex}
-            question={questionsArray[currentIndex]}
-            questionNumber={currentIndex + 1}
-            amountOfQuestions={questionsArray.length}
-            handleSubmit={handleSubmit}
-            timer={timer}
-            />
+          renderQuestion()
         }
       </main>
       <footer>© 2020 Quizl</footer>
