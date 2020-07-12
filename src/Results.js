@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Results = ({ score, numberOfQuestions, gradedArray }) => {
-  const showAnswers = () => {
+  const showGrading = () => {
     return gradedArray.map(
-      (answer, index) => <li key={index}>{ answer ? "CORRECT" : "X" }</li>
+      (answer, index) => <li key={index}>{ answer ? "✅" : "❌" }</li>
     )
   }
 
@@ -16,10 +16,10 @@ const Results = ({ score, numberOfQuestions, gradedArray }) => {
         Score: { score } / { numberOfQuestions }
       </p>
       <p>
-        {score/numberOfQuestions * 100}%
+        {Math.round(score/numberOfQuestions * 100)}%
       </p>
       <ol>
-      { showAnswers() }
+      { showGrading() }
       </ol>
     </>
   )
