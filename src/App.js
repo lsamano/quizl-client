@@ -28,7 +28,8 @@ function App() {
     const currentQuestion = questionsArray[currentIndex]
     const answerIndex = currentQuestion["answerIndex"]
     const answerIsCorrect = answerGiven === currentQuestion["choices"][answerIndex]
-    setGradedArray([...gradedArray, answerIsCorrect]);
+    const newestObj = { text: currentQuestion.text, isCorrect: answerIsCorrect }
+    setGradedArray([...gradedArray, newestObj]);
     // add score if correct
     if (answerIsCorrect) {
       setScore(score + 1)

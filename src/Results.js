@@ -2,9 +2,15 @@ import React from 'react';
 
 const Results = ({ score, numberOfQuestions, gradedArray }) => {
   const showGrading = () => {
-    return gradedArray.map(
-      (answer, index) => <li key={index}>{ answer ? "✅" : "❌" }</li>
-    )
+    return gradedArray.map(({text, isCorrect}, index) => {
+      return (
+        <tr key={index}>
+          <td></td>
+          <td>{`${index + 1}. ${text}`}</td>
+          <td>{ isCorrect ? "✅" : "❌" }</td>
+        </tr>
+      )
+    })
   }
 
   return (
@@ -18,9 +24,11 @@ const Results = ({ score, numberOfQuestions, gradedArray }) => {
       <p>
         {Math.round(score/numberOfQuestions * 100)}%
       </p>
-      <ol>
-      { showGrading() }
-      </ol>
+      <table>
+        <tbody>
+          { showGrading() }
+        </tbody>
+    </table>
     </>
   )
 };
