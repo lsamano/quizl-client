@@ -13,6 +13,11 @@ function App() {
   const [ score, setScore ] = useState(0)
   const [ gradedArray, setGradedArray ] = useState([]);
 
+  // For Dev Purposes
+  // const [ viewResults, setViewResults ] = useState(true)
+  // const [ score, setScore ] = useState(2)
+  // const [ gradedArray, setGradedArray ] = useState([{"text":"Which of the following is a Nintendo franchise?","isCorrect":true},{"text":"Which of the following is a Capcom franchise?","isCorrect":false},{"text":"Which of the following is a Bethesda franchise?","isCorrect":true}]);
+
   useEffect(() => {
     // fetch and set questions
     axios.get("http://localhost:3000/questions")
