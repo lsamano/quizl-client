@@ -57,7 +57,8 @@ function App() {
         <Results
           score={score}
           numberOfQuestions={questionsArray.length}
-          gradedArray={gradedArray} />
+          gradedArray={gradedArray}
+          resetQuiz={resetQuiz} />
       )
     }
     else if (loaded) {
@@ -74,6 +75,13 @@ function App() {
     } else {
       return null
     }
+  }
+
+  const resetQuiz = event => {
+    setViewResults(false);
+    setScore(0);
+    setGradedArray([]);
+    setCurrentIndex(0);
   }
 
   return (
