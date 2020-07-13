@@ -9,8 +9,8 @@ import Button from '@material-ui/core/Button';
 
 const Results = ({ score, numberOfQuestions, gradedArray, resetQuiz }) => {
   const showGrading = () => {
-    return gradedArray.map(({text, isCorrect}, index) => (
-      <GradedRow key={index} text={text} isCorrect={isCorrect} index={index} />
+    return gradedArray.map((obj, index) => (
+      <GradedRow key={index} {...obj} index={index} />
     ))
   }
 

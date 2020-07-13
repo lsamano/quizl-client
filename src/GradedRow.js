@@ -6,10 +6,11 @@ import ClearIcon from '@material-ui/icons/Clear';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 
-const GradedRow = ({text, isCorrect, index}) => {
+const GradedRow = ({text, isCorrect, answerGiven, index}) => {
   return (
     <TableRow>
       <TableCell>{`${index + 1}. ${text}`}</TableCell>
+      <TableCell>{answerGiven}</TableCell>
       <TableCell>{ isCorrect ? <CheckIcon style={{ color: green[500] }} /> : <ClearIcon style={{ color: red[500] }}/> }</TableCell>
     </TableRow>
   )
