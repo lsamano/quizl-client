@@ -1,37 +1,82 @@
 {
-  "questions": [
+  "quizzes": [
     {
       "id": 1,
-      "text": "Which of the following is a Nintendo franchise?",
-      "choices": [
-        "(Super) Mario",
-        "The Legend of Zelda",
-        "Animal Crossing",
-        "All of the Above"
-      ],
-      "answerIndex": 3
+      "title": "Video Game Franchises Quiz",
+      "questions": [
+        {
+          "questionNumber": 1,
+          "text": "Which of the following is a Nintendo franchise?",
+          "choices": [
+            "(Super) Mario",
+            "The Legend of Zelda",
+            "Animal Crossing",
+            "All of the Above"
+          ],
+          "answerIndex": 3
+        },
+        {
+          "questionNumber": 2,
+          "text": "Which of the following is a Capcom franchise?",
+          "choices": [
+            "Resident Evil",
+            "Final Fantasy",
+            "The Elder Scrolls",
+            "None of the Above"
+          ],
+          "answerIndex": 0
+        },
+        {
+          "questionNumber": 3,
+          "text": "Which of the following is a Bethesda franchise?",
+          "choices": [
+            "Atelier",
+            "Doom",
+            "Tales of",
+            "The Legend of Heroes"
+          ],
+          "answerIndex": 1
+        }
+      ]
     },
     {
       "id": 2,
-      "text": "Which of the following is a Capcom franchise?",
-      "choices": [
-        "Resident Evil",
-        "Final Fantasy",
-        "The Elder Scrolls",
-        "None of the Above"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "id": 3,
-      "text": "Which of the following is a Bethesda franchise?",
-      "choices": [
-        "Atelier",
-        "Doom",
-        "Tales of",
-        "The Legend of Heroes"
-      ],
-      "answerIndex": 1
+      "title": "Gundam Fan Quiz",
+      "questions": [
+        {
+          "questionNumber": 1,
+          "text": "Which of these Gundam series features Sengoku Astray?",
+          "choices": [
+            "Gundam 00",
+            "Gundam Wing Endless Waltz",
+            "Gundam Build Fighters",
+            "None of the Above"
+          ],
+          "answerIndex": 2
+        },
+        {
+          "questionNumber": 2,
+          "text": "Which of these Gundam series features Miss Sazabi?",
+          "choices": [
+            "Gundam Build Divers",
+            "Gundam Build Fighters",
+            "Gundam Build Fighters Try",
+            "None of the Above"
+          ],
+          "answerIndex": 1
+        },
+        {
+          "questionNumber": 3,
+          "text": "As of 2020, which of these has yet to receive an RG model kit?",
+          "choices": [
+            "Gundam Epyon EW Ver.",
+            "Build Strike Gundam Full Package",
+            "Unicorn Gundam 02 Banshee Norn",
+            "Char Custom"
+          ],
+          "answerIndex": 3
+        },
+      ]
     }
   ]
 }
