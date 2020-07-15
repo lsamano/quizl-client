@@ -1,92 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
-import Question from './Question';
-import Results from './Results';
+import ChooseQuiz from './ChooseQuiz';
+import Quiz from './Quiz';
 
 function App() {
   const [ loaded, setLoaded ] = useState(false)
-  const [ questionsArray, setQuestionsArray ] = useState([])
-  const [ currentIndex, setCurrentIndex ] = useState(-1)
-  const [ myTimer, setMyTimer ] = useState(-1)
-  const [ viewResults, setViewResults ] = useState(false)
-  const [ score, setScore ] = useState(0)
-  const [ gradedArray, setGradedArray ] = useState([]);
-
-  // For Dev Purposes
-  // const [ viewResults, setViewResults ] = useState(true)
-  // const [ score, setScore ] = useState(2)
-  // const [ gradedArray, setGradedArray ] = useState([{"text":"Which of the following is a Nintendo franchise?","isCorrect":true},{"text":"Which of the following is a Capcom franchise?","isCorrect":false},{"text":"Which of the following is a Bethesda franchise?","isCorrect":true}]);
+  const [ quizzes, setQuizzes ] = useState([]);
 
   useEffect(() => {
     // fetch and set questions
-    axios.get("http://localhost:3000/questions")
+    axios.get("http://localhost:3000/quizzes")
     .then(res => {
-      setQuestionsArray(res.data);
-      setCurrentIndex(0);
+      setQuizzes(res.data);
       setLoaded(true);
     })
   },  [])
-
-  const nextQuestion = answerGiven => {
-    // record answer
-    const currentQuestion = questionsArray[currentIndex]
-    const answerIndex = currentQuestion["answerIndex"]
-    const answerIsCorrect = answerGiven === currentQuestion["choices"][answerIndex]
-    const newestObj = {
-      text: currentQuestion.text,
-      isCorrect: answerIsCorrect,
-      answerGiven
-    }
-    setGradedArray([...gradedArray, newestObj]);
-    // add score if correct
-    if (answerIsCorrect) {
-      setScore(score + 1)
-    }
-    // timer for better user experience
-    setMyTimer(setTimeout(() => {
-      if (currentIndex + 1 === questionsArray.length) {
-        // finish the quiz
-        setViewResults(true);
-      } else {
-        // go to next question
-        setCurrentIndex(currentIndex + 1)
-      }
-    }, 200))
-  }
-
-  const renderQuestion = () => {
-    if (viewResults) {
-      return (
-        <Results
-          score={score}
-          numberOfQuestions={questionsArray.length}
-          gradedArray={gradedArray}
-          resetQuiz={resetQuiz} />
-      )
-    }
-    else if (loaded) {
-      return (
-        <Question
-          key={currentIndex}
-          question={questionsArray[currentIndex]}
-          questionNumber={currentIndex + 1}
-          amountOfQuestions={questionsArray.length}
-          nextQuestion={nextQuestion}
-          myTimer={myTimer}
-          />
-      )
-    } else {
-      return null
-    }
-  }
-
-  const resetQuiz = event => {
-    setViewResults(false);
-    setScore(0);
-    setGradedArray([]);
-    setCurrentIndex(0);
-  }
 
   return (
     <div className="App">
@@ -94,9 +23,7 @@ function App() {
         <h1>QUIZL</h1>
       </header>
       <main>
-        {
-          renderQuestion()
-        }
+        <Quiz />
       </main>
       <footer>© 2020 Quizl</footer>
     </div>
