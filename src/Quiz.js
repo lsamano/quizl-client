@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Question from './Question';
 import Results from './Results';
 
-const Quiz = () => {
-  const [ questionsArray, setQuestionsArray ] = useState([])
+const Quiz = ({ quiz }) => {
+  const questionsArray = quiz.questions;
   const [ currentIndex, setCurrentIndex ] = useState(0)
   const [ myTimer, setMyTimer ] = useState(-1)
   const [ viewResults, setViewResults ] = useState(false)

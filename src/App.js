@@ -5,8 +5,9 @@ import ChooseQuiz from './ChooseQuiz';
 import Quiz from './Quiz';
 
 function App() {
-  const [ loaded, setLoaded ] = useState(false)
+  const [ loaded, setLoaded ] = useState(false);
   const [ quizzes, setQuizzes ] = useState([]);
+  const [ index, setIndex ] = useState(null);
 
   useEffect(() => {
     // fetch and set questions
@@ -23,7 +24,11 @@ function App() {
         <h1>QUIZL</h1>
       </header>
       <main>
-        <Quiz />
+        {loaded && Number.isInteger(index)
+          ? <Quiz quiz={quizzes[index]}/>
+          : loaded 
+          ? <ChooseQuiz setIndex={setIndex} quizzes={quizzes} />
+          : "Loading..."}
       </main>
       <footer>© 2020 Quizl</footer>
     </div>

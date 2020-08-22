@@ -25,11 +25,9 @@ function Question({ question, questionNumber, amountOfQuestions, nextQuestion, m
 
   useEffect(() => {
     return () => {
-      console.log(myTimer);
       clearTimeout(myTimer);
-      // console.log(timer);
     };
-  }, [])
+  }, [myTimer])
 
   return (
     <FormControl component="fieldset" className="fade-in">
