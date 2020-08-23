@@ -18,9 +18,13 @@ function Question({ question, questionNumber, amountOfQuestions, nextQuestion, m
   }
 
   const formatChoices = () => {
-    return question.choices.map(
-      (text, index) => <FormControlLabel value={text} control={<Radio />} label={text} key={index} />
-    )
+    return question.choices.map((text, index) => (
+      <FormControlLabel
+        value={text}
+        control={<Radio />}
+        label={text}
+        key={index} />
+    ))
   }
 
   useEffect(() => {
