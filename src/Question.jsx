@@ -43,13 +43,16 @@ function Question({ question, questionNumber, amountOfQuestions, nextQuestion, m
         onChange={handleChange} >
         { formatChoices() }
       </RadioGroup>
-      <Button
-        variant="outlined"
-        color="secondary"
-        onClick={handleSubmit}
-        disabled={!value} >
-        Next
-      </Button>
+      <div style={{textAlign: "center", width: "100%"}}>
+        <Button
+          style={{width: "100%"}}
+          variant="outlined"
+          color="secondary"
+          onClick={handleSubmit}
+          disabled={!value} >
+          Next
+        </Button>
+      </div>
     </FormControl>
   )
 }
